@@ -1,0 +1,44 @@
+frontend:
+  namespace: jenkins
+  replicaCount: 1
+  image:
+    repository: cyna58/nauka-kubernetes
+    tag: frontend_reset_v2
+    pullPolicy: IfNotPresent
+  service:
+    port: 80
+    type: NodePort
+    nodePort: 30100
+
+backend:
+  namespace: jenkins
+  replicaCount: 1
+  image:
+    repository: cyna58/nauka-kubernetes
+    tag: poe_v1
+    pullPolicy: IfNotPresent
+  service:
+    port: 3001
+    type: ClusterIP 
+  env:
+    mongoSecret: mongo-secret
+    mongoConfig: mongo-config
+
+mongodb:
+  namespace: jenkins
+  replicaCount: 1
+  image:
+    repository: cyna58/nauka_kubernetes
+    tag: mongodb-k8s
+    pullPolicy: IfNotPresent
+
+  volumeMounts:
+    name: mongo-storage
+    mountPath: /data/db
+  volumeClaimTemplates:
+    name: mongo-storage
+    accessModes: ReadWriteOnce 
+    storage: "1Gi"
+  spec:
+    storage: "3Gi"
+    hostPath: /home/cyna/volume

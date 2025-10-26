@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mongo-config
+data:
+  mongo-url: mongo:27017/testdb?authSource=admin
+  contentApiUrl: http://backend:3001

@@ -1,0 +1,31 @@
+name: mongo
+replicaCount: 1
+
+image:
+  repository: cyna58/nauka_kubernetes  
+  tag: mongodb-k8s
+  pullPolicy: IfNotPresent
+
+service:
+  port: 27017
+
+resources:
+  requests:
+    memory: "512Mi"
+    cpu: "250m"
+  limits:
+    memory: "1Gi"
+    cpu: "500m"
+
+volumeMounts:
+  name: mongo-storage
+  mountPath: /data/db
+
+volumeClaimTemplates:
+  name: mongo-storage
+  accessModes: ReadWriteOnce 
+  storage: "1Gi"
+spec:
+  storage: "3Gi"
+
+hostPath: /home/cyna/volume
