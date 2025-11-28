@@ -1,9 +1,0 @@
-name: mongo
-replicaCount: 1
-image:
-  repository: cyna58/nauka_kubernetes
-  tag: mongodb-k8s
-  pullPolicy: IfNotPresent
-persistence:
-  enabled: true
-  size: 3Gi

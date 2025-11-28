@@ -1,9 +1,0 @@
-name: frontend
-replicaCount: 2
-image:
-  repository: cyna58/nauka_kubernetes
-  tag: frontend-k8s
-  pullPolicy: IfNotPresent
-service:
-  port: 80
-nodePort: 30080
