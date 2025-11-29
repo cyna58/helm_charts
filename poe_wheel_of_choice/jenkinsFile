@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     environment {
-        HELM_RELEASE = "poe-woc"       // nazwa release w Helm
-        HELM_NAMESPACE = "jenkins"            // namespace w Kubernetes
-        CHART_PATH = "."                       // ścieżka do chartu w repo
+        HELM_RELEASE = "poe-woc"       
+        HELM_NAMESPACE = "jenkins"           
+        CHART_PATH = "."                      
     }
 
     stages {
