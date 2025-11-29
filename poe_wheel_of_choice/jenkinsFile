@@ -1,5 +1,24 @@
 pipeline {
-    agent any
+    agent {
+        kubernetes {
+            label 'helm-agent'
+            defaultContainer 'helm'
+            yaml """
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: jenkins-helm
+spec:
+  containers:
+    - name: helm
+      image: alpine/helm:4
+      command:
+        - cat
+      tty: true
+"""
+        }
+    }
 
     environment {
         HELM_RELEASE = "poe-woc"
@@ -14,15 +33,16 @@ pipeline {
             }
         }
 
-        stage('Deploy with Helm') {
+        stage('Deploy with Helm inside pod') {
             steps {
-                echo "Starting Helm deploy..."
                 sh """
-                    helm upgrade --install \$HELM_RELEASE \$CHART_PATH \\
-                      --namespace \$HELM_NAMESPACE \\
-                      --values \$CHART_PATH/values.yaml
-                    """
-                
+                echo "CLI in container:"
+                helm version
+
+                helm upgrade --install \$HELM_RELEASE \$CHART_PATH \
+                  --namespace \$HELM_NAMESPACE \
+                  --values \$CHART_PATH/values.yaml
+                """
             }
         }
     }
