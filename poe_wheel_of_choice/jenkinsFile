@@ -16,7 +16,7 @@ pipeline {
 
         stage('Deploy with Helm') {
             steps {
-                // użycie Secret File jako KUBECONFIG
+                echo "Starting Helm deploy..."
                 withCredentials([file(credentialsId: 'k8s-config', variable: 'KUBECONFIG')]) {
                     sh """
                     helm upgrade --install \$HELM_RELEASE \$CHART_PATH \\
