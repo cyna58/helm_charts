@@ -22,7 +22,7 @@ pipeline {
                       --namespace \$HELM_NAMESPACE \\
                       --values \$CHART_PATH/values.yaml
                     """
-                }
+                
             }
         }
     }
