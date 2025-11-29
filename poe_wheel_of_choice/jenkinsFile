@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     environment {
-        HELM_RELEASE = "poe-woc"       
-        HELM_NAMESPACE = "jenkins"           
-        CHART_PATH = "."                      
+        HELM_RELEASE = "poe-woc"
+        HELM_NAMESPACE = "jenkins"
+        CHART_PATH = "."
     }
 
     stages {
@@ -16,11 +16,14 @@ pipeline {
 
         stage('Deploy with Helm') {
             steps {
-                sh """
-                helm upgrade --install $HELM_RELEASE $CHART_PATH \\
-                  --namespace $HELM_NAMESPACE \\
-                  --values $CHART_PATH/values.yaml
-                """
+                // użycie Secret File jako KUBECONFIG
+                withCredentials([file(credentialsId: 'k8s-config', variable: 'KUBECONFIG')]) {
+                    sh """
+                    helm upgrade --install \$HELM_RELEASE \$CHART_PATH \\
+                      --namespace \$HELM_NAMESPACE \\
+                      --values \$CHART_PATH/values.yaml
+                    """
+                }
             }
         }
     }
