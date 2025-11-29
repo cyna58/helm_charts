@@ -1,6 +1,6 @@
 frontend:
   namespace: jenkins
-  replicaCount: 3
+  replicaCount: 1
   image:
     repository: cyna58/nauka-kubernetes
     tag: frontend_reset_v2
