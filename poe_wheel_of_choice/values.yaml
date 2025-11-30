@@ -1,5 +1,5 @@
 frontend:
-  namespace: poe
+  namespace: jenkins
   replicaCount: 1
   image:
     repository: cyna58/nauka-kubernetes
@@ -11,7 +11,7 @@ frontend:
     nodePort: 30100
 
 backend:
-  namespace: poe
+  namespace: jenkins
   replicaCount: 1
   image:
     repository: cyna58/nauka-kubernetes
@@ -25,7 +25,7 @@ backend:
     mongoConfig: mongo-config
 
 mongodb:
-  namespace: poe
+  namespace: jenkins
   replicaCount: 1
   image:
     repository: cyna58/nauka_kubernetes
