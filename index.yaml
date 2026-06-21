@@ -1,0 +1,42 @@
+apiVersion: v1
+entries:
+  poe-woc:
+  - apiVersion: v2
+    created: "2026-06-21T23:37:25.36981845+02:00"
+    dependencies:
+    - name: backend
+      repository: file://./charts/backend
+      version: 0.1.0
+    - name: frontend
+      repository: file://./charts/frontend
+      version: 0.1.0
+    - name: mongodb
+      repository: file://./charts/mongodb
+      version: 0.1.0
+    description: Umbrella chart for Wheel of Choice
+    digest: 09fba64f44ee7185c6a30c63ed0a5e40567d5ac0b20015c72fb3545523f638c6
+    name: poe-woc
+    type: application
+    urls:
+    - poe-woc-0.1.0.tgz
+    version: 0.1.0
+  - apiVersion: v2
+    created: "2026-06-21T23:37:25.370699316+02:00"
+    dependencies:
+    - name: backend
+      repository: file://./charts/backend
+      version: 0.1.0
+    - name: frontend
+      repository: file://./charts/frontend
+      version: 0.1.0
+    - name: mongodb
+      repository: file://./charts/mongodb
+      version: 0.1.0
+    description: Umbrella chart for Wheel of Choice
+    digest: 345b14d3434ba4a7a2774c5645366fb92ccb51dbce933d454af76e4600a9fa7d
+    name: poe-woc
+    type: application
+    urls:
+    - poe-aks/poe-woc-0.1.0.tgz
+    version: 0.1.0
+generated: "2026-06-21T23:37:25.368993023+02:00"
