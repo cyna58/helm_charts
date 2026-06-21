@@ -2,7 +2,7 @@ apiVersion: v1
 entries:
   poe-woc:
   - apiVersion: v2
-    created: "2026-06-18T16:11:49.501846253+02:00"
+    created: "2026-06-21T21:54:06.939107907+02:00"
     dependencies:
     - name: backend
       repository: file://./charts/backend
@@ -14,10 +14,29 @@ entries:
       repository: file://./charts/mongodb
       version: 0.1.0
     description: Umbrella chart for Wheel of Choice
-    digest: fd884f5b2505924f749c018c5dbfc73fd668d6f1d1706481f7263fc6f0e2de33
+    digest: d02e9342b72b1ab3bbc9587abb3eb0faaddd756d85d687acea3e6cc1590eec20
     name: poe-woc
     type: application
     urls:
-    - https://cyna58.github.io/helm_charts/poe-woc-0.1.0.tgz
+    - poe-woc-0.1.0.tgz
     version: 0.1.0
-generated: "2026-06-18T16:11:49.500929175+02:00"
+  - apiVersion: v2
+    created: "2026-06-21T21:54:06.939601821+02:00"
+    dependencies:
+    - name: backend
+      repository: file://./charts/backend
+      version: 0.1.0
+    - name: frontend
+      repository: file://./charts/frontend
+      version: 0.1.0
+    - name: mongodb
+      repository: file://./charts/mongodb
+      version: 0.1.0
+    description: Umbrella chart for Wheel of Choice
+    digest: 345b14d3434ba4a7a2774c5645366fb92ccb51dbce933d454af76e4600a9fa7d
+    name: poe-woc
+    type: application
+    urls:
+    - poe-aks/poe-woc-0.1.0.tgz
+    version: 0.1.0
+generated: "2026-06-21T21:54:06.93838851+02:00"

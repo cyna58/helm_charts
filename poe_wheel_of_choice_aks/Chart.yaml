@@ -1,0 +1,16 @@
+apiVersion: v2
+name: poe-woc
+version: 0.1.0
+description: Umbrella chart for Wheel of Choice
+type: application
+
+dependencies:
+  - name: backend
+    version: 0.1.0
+    repository: "file://./charts/backend"
+  - name: frontend
+    version: 0.1.0
+    repository: "file://./charts/frontend"
+  - name: mongodb
+    version: 0.1.0
+    repository: "file://./charts/mongodb"

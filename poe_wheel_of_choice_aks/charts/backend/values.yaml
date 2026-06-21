@@ -1,0 +1,27 @@
+name: backend
+replicas: 1
+
+image:
+  repository: cyna58/nauka-kubernetes
+  pullPolicy: IfNotPresent
+  tag: "backend_poe_aks_v1"
+
+service:
+  type: ClusterIP
+  port: 3001
+
+env:
+  mongoConfigName: mongo-config
+
+keyVault:
+  secretProviderClass: mongo-kv
+  mountPath: /mnt/secrets
+
+resources:
+  requests:
+    memory: "256Mi"
+    cpu: "250m"
+  limits:
+    memory: "512Mi"
+    cpu: "500m"
+

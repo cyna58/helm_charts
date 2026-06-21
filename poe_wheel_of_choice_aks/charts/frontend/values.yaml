@@ -1,0 +1,20 @@
+name: frontend
+replicaCount: 1
+
+image:
+  repository: cyna58/nauka-kubernetes
+  tag: frontend_reset_v2
+  pullPolicy: IfNotPresent
+
+service:
+  port: 80
+  type: NodePort
+  nodePort: 30100
+
+resources:
+  requests:
+      cpu: "100m"
+      memory: "128Mi"
+  limits:
+    cpu: "250m"
+    memory: "256Mi"
